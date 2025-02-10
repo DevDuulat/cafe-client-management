@@ -112,7 +112,7 @@
                 <p class="text-xl font-bold ">Только в этом месяце бизнес-ланч от 2000 сом </p>
             </div>
             <div>
-                <a href="reservation.html"
+                <a href="{{ route('reservation.create') }}"
                    class="text-white bg-yellow-500 px-4 py-2 rounded-2xl uppercase font-semibold hover:bg-yellow-700 ">Заказ
                     столик</a>
             </div>
@@ -215,8 +215,9 @@
                         </div>
                     </div>
                     <div class="hidden md:block md- text-center">
-                        <a href="reservation.html"
-                           class="text-white bg-yellow-500 px-4 py-2 rounded-2xl uppercase font-semibold hover:bg-yellow-700 ">Заказ
+                        <a href="{{ route('reservation.create') }}"
+
+                        class="text-white bg-yellow-500 px-4 py-2 rounded-2xl uppercase font-semibold hover:bg-yellow-700 ">Заказ
                             столик</a>
                     </div>
                 </div>
