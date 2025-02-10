@@ -48,7 +48,6 @@
                 <button class="mt-4 mb-4 bg-yellow-500 text-yellow-50 px-15 py-2 text-center rounded-3xl w-64">
                     {{ __('Войти') }}
                 </button>
-
             </div>
     </form>
 
@@ -56,12 +55,12 @@
                 <p>У меня нет <a href="{{ route('register') }}" class="text-yellow-500 ">аккаунта!</a></p>
             </div>
 
-        @if (Route::has('password.request'))
+            @if (Route::has('password.request'))
                 <a class="text-sm text-white hover:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Забыли пароль?') }}
                 </a>
             @endif
-</div>
+        </div>
     </div>
 </section>
 </x-guest-layout>
