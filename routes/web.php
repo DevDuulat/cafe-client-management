@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MenuCategoryController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +34,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/reservation', [ReservationController::class, 'create'])->name('reservation.create');
 Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 
+// Главная страница меню
+Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 
+// Маршрут для отображения категорий меню
+Route::get('/menu/category/{category}', [MenuController::class, 'category'])->name('menu.category');
 require __DIR__.'/auth.php';
