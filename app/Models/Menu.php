@@ -18,6 +18,6 @@ class Menu extends Model
 
     public function menuCategory()
     {
-        return $this->belongsTo(MenuCategory::class, 'menu_category_fk'); // 'menu_category_fk' — это внешний ключ в таблице menus
+        return $this->belongsTo(MenuCategory::class, 'menu_category_fk');
     }
 }

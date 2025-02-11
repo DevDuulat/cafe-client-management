@@ -16,15 +16,15 @@ class MenuController extends Controller
         $categories = MenuCategory::all();
         $menus = Menu::all();
 
-        return view('menu', compact('categories', 'menus'));  // Отправляем их в представление menu.blade.php
+        return view('menu', compact('categories', 'menus'));
     }
 
     public function category($category)
     {
-        $categories = MenuCategory::all();  // Получаем все категории меню
-        $menus = Menu::where('menu_category_fk', $category)->get();  // Получаем меню по выбранной категории
+        $categories = MenuCategory::all();
+        $menus = Menu::where('menu_category_fk', $category)->get();
 
-        return view('menu', compact('categories', 'menus'));  // Отправляем в представление
+        return view('menu', compact('categories', 'menus'));
     }
 
     /**
