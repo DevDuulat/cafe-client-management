@@ -43,4 +43,11 @@ class ReviewController extends Controller
         return redirect()->back()->with('success', 'Статус отзыва обновлен!');
     }
 
+    public function myReviews()
+    {
+        $reviews = Review::where('user_id', auth()->id())->latest()->get();
+        return view('profile.reviews.index', compact('reviews'));
+    }
+
+
 }
