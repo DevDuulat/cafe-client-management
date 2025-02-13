@@ -250,7 +250,7 @@
                                                 </a>
                                             @else
                                                 <a href="{{ route('register') }}" class="bg-yellow-500 py-2 px-5 rounded-3xl">
-                                                    Зарегистрируйтесь, чтобы оставить отзыв
+                                                    Оставить свой отзыв
                                                 </a>
                                             @endif
                                         </div>
