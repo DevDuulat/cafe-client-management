@@ -43,4 +43,8 @@ Route::get('/reviews/create', [ReviewController::class, 'create'])
     ->name('reviews.create');
 Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile/reviews', [ReviewController::class, 'myReviews'])->name('profile.reviews.index');
+});
+
 require __DIR__.'/auth.php';
