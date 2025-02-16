@@ -32,6 +32,14 @@ class MenuResource extends Resource
                     ->required()
                     ->maxLength(255),
 
+                TextInput::make('price')
+                    ->label('Цена')
+                    ->numeric()
+                    ->required()
+                    ->minValue(0)
+                    ->maxValue(999999.99)
+                    ->step(0.01),
+
                 Textarea::make('body_menu')
                     ->required()
                     ->columnSpanFull(),
@@ -62,6 +70,11 @@ class MenuResource extends Resource
                     ->width(50)
                     ->height(50)
                     ->square(),
+
+                Tables\Columns\TextColumn::make('price')
+                    ->label('Цена')
+                    ->sortable()
+                    ->money('KGS'),
 
                 Tables\Columns\TextColumn::make('menuCategory.name_category')
                     ->label('Категория')
