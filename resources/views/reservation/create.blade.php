@@ -37,8 +37,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-lg mb-2 ">Телефон</label>
-                            <input type="text" name="phone" placeholder="+996 (...)"
+                            <label class="block text-lg mb-2">Телефон</label>
+                            <input type="text" name="phone" value="{{ old('phone', '+996 ') }}"
                                    class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
                         </div>
 
