@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title_menu');
             $table->text('body_menu');
             $table->string('img_menu');
+            $table->decimal('price', 8, 2);
             $table->foreignId('menu_category_fk')->constrained('menu_categories')->onDelete('cascade'); // Внешний ключ на таблицу menu_categories
             $table->timestamps();
         });

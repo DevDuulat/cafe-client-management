@@ -13,6 +13,7 @@ class Menu extends Model
         'title_menu',
         'body_menu',
         'img_menu',
+        'price',
         'menu_category_fk',
     ];
 
