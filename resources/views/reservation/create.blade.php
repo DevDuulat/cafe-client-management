@@ -30,22 +30,29 @@
                         </div>
 
                         <div>
-                            <label class="block text-lg mb-2 ">Дата</label>
+                            <label class="block text-lg mb-2">Дата</label>
                             <input type="date" name="reservation_date" x-model="selectedDate"
+                                   class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                   :min="today()">
+                        </div>
+
+                        <div>
+                            <label class="block text-lg mb-2">Телефон</label>
+                            <input type="text" name="phone" value="{{ old('phone', '+996 ') }}"
                                    class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
                         </div>
 
                         <div>
-                            <label class="block text-lg mb-2 ">Телефон</label>
-                            <input type="text" name="phone" placeholder="+996 (...)"
-                                   class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <label class="block text-lg mb-2">Локация</label>
+                            <select name="location"
+                                    class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                <option value="" disabled selected>Укажите адрес кафе</option>
+                                <option value="ул. Чуй 231" class="text-black bg-yellow-500">ул. Чуй 231</option>
+                                <option value="ул. Самара 12" class="text-black bg-yellow-500">ул. Самара 12</option>
+                                <option value="ул. Чуй 11" class="text-black bg-yellow-500">ул. Чуй 11</option>
+                            </select>
                         </div>
 
-                        <div>
-                            <label class="block text-lg mb-2 ">Локация</label>
-                            <input type="text" name="location" placeholder="Укажите адрес кафе"
-                                   class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                        </div>
 
                         <div>
                             <label class="block text-lg mb-2 ">Количество персон</label>
@@ -126,4 +133,17 @@
         };
     }
 
+</script>
+<script>
+    function today() {
+        const date = new Date();
+        const yyyy = date.getFullYear();
+        let mm = date.getMonth() + 1;
+        let dd = date.getDate();
+
+        mm = mm < 10 ? '0' + mm : mm;
+        dd = dd < 10 ? '0' + dd : dd;
+
+        return `${yyyy}-${mm}-${dd}`;
+    }
 </script>
