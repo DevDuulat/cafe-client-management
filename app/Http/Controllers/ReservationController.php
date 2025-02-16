@@ -9,24 +9,38 @@ class ReservationController extends Controller
 {
     public function create()
     {
-        return view('reservation.create');
+        $reservations = Reservation::select('table_number', 'reservation_date', 'time')
+            ->get()
+            ->map(function ($reservation) {
+                $reservation->time = \Carbon\Carbon::parse($reservation->time)->format('H:i');
+                return $reservation;
+            });
+        return view('reservation.create', compact('reservations'));
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name'                => 'required|string|max:255',
-            'reservation_date'    => 'required|date',
-            'phone'               => 'required|string|max:50',
-            'location'            => 'required|string|max:255',
-            'number_of_persons'   => 'required|integer|min:1',
-            'table_number'        => 'required|integer|min:1',
-            'time'                => 'required',
-            'wishes'              => 'nullable|string',
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'reservation_date' => 'required|date',
+            'time' => 'required|string',
+            'table_number' => 'required|integer',
+            'number_of_persons' => 'required|integer|min:1',
         ]);
 
-        Reservation::create($validated);
+        $existingReservation = Reservation::where([
+            ['table_number', $request->table_number],
+            ['reservation_date', $request->reservation_date],
+            ['time', $request->time],
+        ])->exists();
 
-        return redirect()->back()->with('status', 'Бронь успешно создана!');
+        if ($existingReservation) {
+            return redirect()->back()->with('error', 'Этот столик уже забронирован на указанное время.');
+        }
+
+        Reservation::create($request->all());
+
+        return redirect()->route('reservation.create')->with('success', 'Ваш столик успешно забронирован!');
     }
 }
