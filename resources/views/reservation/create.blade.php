@@ -30,9 +30,10 @@
                         </div>
 
                         <div>
-                            <label class="block text-lg mb-2 ">Дата</label>
+                            <label class="block text-lg mb-2">Дата</label>
                             <input type="date" name="reservation_date" x-model="selectedDate"
-                                   class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                   class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                   :min="today()">
                         </div>
 
                         <div>
@@ -126,4 +127,17 @@
         };
     }
 
+</script>
+<script>
+    function today() {
+        const date = new Date();
+        const yyyy = date.getFullYear();
+        let mm = date.getMonth() + 1;
+        let dd = date.getDate();
+
+        mm = mm < 10 ? '0' + mm : mm;
+        dd = dd < 10 ? '0' + dd : dd;
+
+        return `${yyyy}-${mm}-${dd}`;
+    }
 </script>
