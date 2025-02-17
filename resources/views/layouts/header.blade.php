@@ -1,6 +1,9 @@
 <header class="bg-neutral-800 fixed top-0 inset-x-0 z-20 sm:static">
     <div class="flex px-5 items-center justify-between text-yellow-500 py-3 sм:py-6">
-        <a href="index.html"><span class="text-xl sm:text-2xl ">Coffee -&- Home</span></a>
+        <a href="{{ route('home') }}">
+            <span class="text-xl sm:text-2xl">Coffee -&- Home</span>
+        </a>
+
         <nav class="hidden lg:block">
             <ul class="flex items-center gap-x-4 lg:gap-x-8 uppercase  ">
                 <li><a href="#menu" class="font-bold hover:text-yellow-50">Меню</a></li>
@@ -11,10 +14,10 @@
         </nav>
 
         <div class="items-center gap-x-6  hidden sm:flex ">
-            <a href="#" class="text-yellow-50 uppercase text-xs md:text-base font-semibold px-2 py-2 md:px-3 md:py-2 border
+            <a href="{{ route('reservation.create') }}" class="text-yellow-50 uppercase text-xs md:text-base font-semibold px-2 py-2 md:px-3 md:py-2 border
             border-yellow-500 rounded-3xl bg-yellow-500 hover:bg-yellow-400 hover:border-yellow-400  ">Заказать
                 столик</a>
-            <a href="login.html" class="uppercase font-semibold text-xs md:text-base px-3 md:px-5 py-2 border
+            <a href="{{ route('login') }}" class="uppercase font-semibold text-xs md:text-base px-3 md:px-5 py-2 border
             border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white">Кабинет</a>
         </div>
 

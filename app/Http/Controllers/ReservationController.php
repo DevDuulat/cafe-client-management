@@ -27,6 +27,7 @@ class ReservationController extends Controller
             'time' => 'required|string',
             'table_number' => 'required|integer',
             'number_of_persons' => 'required|integer|min:1',
+            'location' => 'required|string|max:255',
         ]);
 
         $existingReservation = Reservation::where([
@@ -39,8 +40,18 @@ class ReservationController extends Controller
             return redirect()->back()->with('error', 'Этот столик уже забронирован на указанное время.');
         }
 
-        Reservation::create($request->all());
+        Reservation::create([
+            'user_id' => auth()->id(),
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'reservation_date' => $request->reservation_date,
+            'time' => $request->time,
+            'table_number' => $request->table_number,
+            'number_of_persons' => $request->number_of_persons,
+            'location' => $request->location,
+        ]);
 
         return redirect()->route('reservation.create')->with('success', 'Ваш столик успешно забронирован!');
     }
+
 }
