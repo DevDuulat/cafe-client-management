@@ -27,6 +27,9 @@
                             <label class="block text-lg mb-2 ">Имя</label>
                             <input type="text" name="name" placeholder="Укажите ваше имя"
                                    class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            @error('name')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
@@ -34,12 +37,19 @@
                             <input type="date" name="reservation_date" x-model="selectedDate"
                                    class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
                                    :min="today()">
+                            @error('reservation_date')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+
                         </div>
 
                         <div>
                             <label class="block text-lg mb-2">Телефон</label>
                             <input type="text" name="phone" value="{{ old('phone', '+996 ') }}"
                                    class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            @error('phone')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
@@ -51,6 +61,9 @@
                                 <option value="ул. Самара 12" class="text-black bg-yellow-500">ул. Самара 12</option>
                                 <option value="ул. Чуй 11" class="text-black bg-yellow-500">ул. Чуй 11</option>
                             </select>
+                            @error('location')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
 
@@ -58,6 +71,9 @@
                             <label class="block text-lg mb-2 ">Количество персон</label>
                             <input type="number" name="number_of_persons" value="1"
                                    class="w-full border border-yellow-500 rounded-lg p-4 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            @error('number_of_persons')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
@@ -68,6 +84,9 @@
                                     <option value="{{ $i }}">Столик {{ $i }}</option>
                                 @endfor
                             </select>
+                            @error('table_number')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="col-span-2">
@@ -83,6 +102,9 @@
                                     </button>
                                 @endforeach
                             </div>
+                            @error('time')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="col-span-2">
