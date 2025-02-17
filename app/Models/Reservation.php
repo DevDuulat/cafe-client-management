@@ -18,5 +18,11 @@ class Reservation extends Model
         'table_number',
         'time',
         'wishes',
+        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

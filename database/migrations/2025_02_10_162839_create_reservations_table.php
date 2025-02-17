@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedInteger('table_number');
             $table->time('time');
             $table->text('wishes')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
