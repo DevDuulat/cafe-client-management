@@ -15,7 +15,7 @@ class ReservationController extends Controller
                 $reservation->time = \Carbon\Carbon::parse($reservation->time)->format('H:i');
                 return $reservation;
             });
-        return view('reservation.create', compact('reservations'));
+        return view('user.reservation.create', compact('reservations'));
     }
 
     public function store(Request $request)

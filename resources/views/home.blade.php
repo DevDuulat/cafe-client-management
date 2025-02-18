@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('layouts.app')
 
 @section('content')
     <section class="h-screen relative bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
@@ -16,9 +16,11 @@
                     Наше кафе
                 </h1>
                 <div class="flex items-center justify-center gap-4 text-center ">
-                    <span class="relative before:content-[''] before:block before:w-[31px] sm:before:w-[61px] before:h-[2px] before:bg-white"></span>
+                    <span
+                        class="relative before:content-[''] before:block before:w-[31px] sm:before:w-[61px] before:h-[2px] before:bg-white"></span>
                     <span class="text-sm sm:text-lg font-semibold uppercase">Дом лучшей еды</span>
-                    <span class="relative after:content-[''] after:block after:w-[31px]  sm:after:w-[61px] after:h-[2px] after:bg-white"></span>
+                    <span
+                        class="relative after:content-[''] after:block after:w-[31px]  sm:after:w-[61px] after:h-[2px] after:bg-white"></span>
                 </div>
             </div>
         </div>
@@ -31,7 +33,9 @@
                 class="max-w-[350px] w-full h-full pt-10 pb-5 px-5  gap-y-4 bg-neutral-700 flex flex-col
       items-center text-center transition-transform duration-300 hover:-translate-y-3">
                 <header>
-                    <img src="https://raw.githubusercontent.com/TikhonovIvan/dip1/def5c2ff610f30bfedf0320d3cb9c88da9116cd8/img/mask.svg" alt="" class="mx-auto">
+                    <img
+                        src="https://raw.githubusercontent.com/TikhonovIvan/dip1/def5c2ff610f30bfedf0320d3cb9c88da9116cd8/img/mask.svg"
+                        alt="" class="mx-auto">
                     <h3 class="text-xl sm:text-2xl">Магическая <span class="text-yellow-500">Атмосфера</span></h3>
                 </header>
                 <p class="w-60 text-center text-lg sm:text-xl">В нашем заведении царит магическая атмосфера, наполненная
@@ -41,7 +45,9 @@
             <article class="max-w-[350px]  w-full  h-full pt-10 pb-5 px-5   gap-y-4 bg-neutral-700 flex
       flex-col items-center text-center transition-transform duration-300 hover:-translate-y-3">
                 <header>
-                    <img src="https://raw.githubusercontent.com/TikhonovIvan/dip1/def5c2ff610f30bfedf0320d3cb9c88da9116cd8/img/mask.svg" alt="" class="mx-auto">
+                    <img
+                        src="https://raw.githubusercontent.com/TikhonovIvan/dip1/def5c2ff610f30bfedf0320d3cb9c88da9116cd8/img/mask.svg"
+                        alt="" class="mx-auto">
                     <h3 class="text-xl sm:text-2xl">Лучшее качество <span class="text-yellow-500">Еды</span></h3>
                 </header>
                 <p class="w-60 text-center text-lg sm:text-xl">Качество нашей <br> Еды - отменное!</p>
@@ -49,7 +55,9 @@
             <article class="max-w-[350px] w-full   h-full pt-10 pb-5 px-5  gap-y-4 bg-neutral-700 flex
       flex-col items-center text-center transition-transform duration-300 hover:-translate-y-3 sm:col-span-3 md:col-span-1 ">
                 <header>
-                    <img src="https://raw.githubusercontent.com/TikhonovIvan/dip1/def5c2ff610f30bfedf0320d3cb9c88da9116cd8/img/mask.svg" alt="" class="mx-auto">
+                    <img
+                        src="https://raw.githubusercontent.com/TikhonovIvan/dip1/def5c2ff610f30bfedf0320d3cb9c88da9116cd8/img/mask.svg"
+                        alt="" class="mx-auto">
                     <h3 class="text-xl sm:text-2xl">Незабываемый <span class="text-yellow-500">Вкус</span></h3>
                 </header>
                 <p class="w-60 text-center text-lg sm:text-xl">Наши повара готовят <br> Удивительно вкусные блюда</p>
@@ -58,7 +66,8 @@
     </div>
 
     <section class="pb-10" id="about">
-        <div class=" container mt-140 sm:mt-100 md:mt-60 flex flex-col md:flex-row gap-y-4 justify-center  md:justify-between ">
+        <div
+            class=" container mt-140 sm:mt-100 md:mt-60 flex flex-col md:flex-row gap-y-4 justify-center  md:justify-between ">
             <div class="flex flex-col items-center justify-center gap-4 ">
                 <h2 class="text-2xl sm:text-4xl mt-10 mb-4 text-center">
                     Наша
@@ -126,19 +135,23 @@
                 <div class=" hidden lg:grid grid-cols-2 grid-rows-3 gap-3 w-[555px]  h-[1100px] ">
                     <!-- Первая картинка (верхняя, большая, на 2 колонки) -->
                     <div class="col-span-2">
-                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-1.png?raw=true" alt="" class="w-[555px] h-full ">
+                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-1.png?raw=true" alt=""
+                             class="w-[555px] h-full ">
                     </div>
                     <!-- Вторая картинка (левая, маленькая) -->
                     <div class="col-span-1 row-span-1">
-                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-2.png?raw=true" alt="" class="w-[332px]  h-full ">
+                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-2.png?raw=true" alt=""
+                             class="w-[332px]  h-full ">
                     </div>
                     <!-- Третья картинка (2 строки, 1 колонка) -->
                     <div class="col-span-1 row-span-2">
-                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-3.png?raw=true" alt="" class="w-full h-full ">
+                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-3.png?raw=true" alt=""
+                             class="w-full h-full ">
                     </div>
                     <!-- Четвёртая картинка (пересекается с 3 картинкой, но стоит в третьей строке первой колонки) -->
                     <div class="col-span-1 row-start-3">
-                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-4.png?raw=true" alt="" class="w-[332px] h-full ">
+                        <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-4.png?raw=true" alt=""
+                             class="w-[332px] h-full ">
                     </div>
                 </div>
                 <div class="flex flex-col  gap-y-18">
@@ -146,7 +159,8 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true" alt="" class="w-full h-full object-cover">
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                                 alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
@@ -156,7 +170,8 @@
                             </p>
                         </div>
                         <!-- Цена -->
-                        <div class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
+                        <div
+                            class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
                             3500
                         </div>
                     </div>
@@ -164,7 +179,8 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true" alt="" class="w-full h-full object-cover">
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                                 alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
@@ -174,7 +190,8 @@
                             </p>
                         </div>
                         <!-- Цена -->
-                        <div class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
+                        <div
+                            class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
                             3500
                         </div>
                     </div>
@@ -182,7 +199,8 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true" alt="" class="w-full h-full object-cover">
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                                 alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
@@ -192,7 +210,8 @@
                             </p>
                         </div>
                         <!-- Цена -->
-                        <div class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
+                        <div
+                            class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
                             3500
                         </div>
                     </div>
@@ -200,7 +219,8 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true" alt="" class="w-full h-full object-cover">
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                                 alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
@@ -210,14 +230,15 @@
                             </p>
                         </div>
                         <!-- Цена -->
-                        <div class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
+                        <div
+                            class="absolute top-5 xs-left-10 sm:left-30   bg-black text-white text-sm font-bold px-4 py-1 rounded-full">
                             3500
                         </div>
                     </div>
                     <div class="hidden md:block md- text-center">
                         <a href="{{ route('menu.index') }}"
 
-                        class="text-white bg-yellow-500 px-4 py-2 rounded-2xl uppercase font-semibold hover:bg-yellow-700 ">Меню</a>
+                           class="text-white bg-yellow-500 px-4 py-2 rounded-2xl uppercase font-semibold hover:bg-yellow-700 ">Меню</a>
                     </div>
                 </div>
             </div>
@@ -245,11 +266,13 @@
                                             <p class="text-xl font-semibold">{{ $review->name }}</p>
                                             <p class="text-md text-gray-400 mb-4">{{ $review->user_city ?? 'Город, Страна' }}</p>
                                             @if(auth()->check())
-                                                <a href="{{ route('reviews.create') }}" class="bg-yellow-500 py-2 px-5 rounded-3xl">
+                                                <a href="{{ route('reviews.create') }}"
+                                                   class="bg-yellow-500 py-2 px-5 rounded-3xl">
                                                     Оставить свой отзыв
                                                 </a>
                                             @else
-                                                <a href="{{ route('register') }}" class="bg-yellow-500 py-2 px-5 rounded-3xl">
+                                                <a href="{{ route('register') }}"
+                                                   class="bg-yellow-500 py-2 px-5 rounded-3xl">
                                                     Оставить свой отзыв
                                                 </a>
                                             @endif
@@ -265,7 +288,7 @@
             </div>
         </div>
     </section>
-    <section id="gelari" class="py-5 sm:py-10">
+    <section id="gallery" class="py-5 sm:py-10">
         <div class="container text-center">
             <h3 class="text-4xl mb-10 ">
                 Галерея
@@ -273,22 +296,28 @@
             </h3>
             <div class="grid grid-cols-2 grid-rows-4 md:grid-cols-4 md:grid-rows-2 gap-4">
                 <div class="col-span-2">
-                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i1.png?raw=true" alt="" class="w-full h-auto object-cover">
+                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i1.png?raw=true" alt=""
+                         class="w-full h-auto object-cover">
                 </div>
                 <div>
-                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i2.png?raw=true" alt="" class="w-full h-auto object-cover">
+                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i2.png?raw=true" alt=""
+                         class="w-full h-auto object-cover">
                 </div>
                 <div>
-                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i3.png?raw=true" alt="" class="w-full h-auto object-cover">
+                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i3.png?raw=true" alt=""
+                         class="w-full h-auto object-cover">
                 </div>
                 <div>
-                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i4.png?raw=true" alt="" class="w-full h-auto object-cover">
+                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i4.png?raw=true" alt=""
+                         class="w-full h-auto object-cover">
                 </div>
                 <div>
-                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i5.png?raw=true" alt="" class="w-full h-auto object-cover">
+                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i5.png?raw=true" alt=""
+                         class="w-full h-auto object-cover">
                 </div>
                 <div class="col-span-2">
-                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i6.png?raw=true" alt="" class="w-full h-auto object-cover">
+                    <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/gallery/i6.png?raw=true" alt=""
+                         class="w-full h-auto object-cover">
                 </div>
             </div>
         </div>
@@ -296,6 +325,5 @@
     <section class="bg-cover bg-center bg-no-repeat h-screen"
              style="background-image: url('https://github.com/TikhonovIvan/dip1/blob/main/img/bg-end.png?raw=true');">
     </section>
-
 
 @endsection

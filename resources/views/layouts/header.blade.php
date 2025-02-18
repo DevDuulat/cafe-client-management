@@ -5,21 +5,40 @@
         </a>
 
         <nav class="hidden lg:block">
-            <ul class="flex items-center gap-x-4 lg:gap-x-8 uppercase  ">
-                <li><a href="#menu" class="font-bold hover:text-yellow-50">Меню</a></li>
-                <li><a href="#about" class="font-bold hover:text-yellow-50">О нас</a></li>
-                <li><a href="#gelari" class="font-bold hover:text-yellow-50">Галерея</a></li>
-                <li><a href="#footer" class="font-bold hover:text-yellow-50">Контакты</a></li>
+            <ul class="flex items-center gap-x-4 lg:gap-x-8 uppercase">
+
+
+                @auth
+                    <li><a href="{{ route('dashboard') }}" class="font-bold hover:text-yellow-50">Моя страница</a></li>
+                    <li><a href="{{ route('menu.index') }}" class="font-bold hover:text-yellow-50">Меню</a></li>
+                    <li><a href="{{ route('reservation.create') }}" class="font-bold hover:text-yellow-50">Бронь</a></li>
+                    <li><a href="{{ route('reviews.create') }}" class="font-bold hover:text-yellow-50">Отзывы</a></li>
+                @else
+                    <li><a href="#menu" class="font-bold hover:text-yellow-50">Меню</a></li>
+                    <li><a href="#about" class="font-bold hover:text-yellow-50">О нас</a></li>
+                    <li><a href="#gallery" class="font-bold hover:text-yellow-50">Галерея</a></li>
+                    <li><a href="#footer" class="font-bold hover:text-yellow-50">Контакты</a></li>
+                @endauth
             </ul>
         </nav>
 
-        <div class="items-center gap-x-6  hidden sm:flex ">
-            <a href="{{ route('reservation.create') }}" class="text-yellow-50 uppercase text-xs md:text-base font-semibold px-2 py-2 md:px-3 md:py-2 border
-            border-yellow-500 rounded-3xl bg-yellow-500 hover:bg-yellow-400 hover:border-yellow-400  ">Заказать
-                столик</a>
-            <a href="{{ route('login') }}" class="uppercase font-semibold text-xs md:text-base px-3 md:px-5 py-2 border
+
+        <div class="items-center gap-x-6 hidden sm:flex">
+            @auth
+                <form method="POST" action="{{ route('logout') }}" class="inline">
+                    @csrf
+                    <button type="submit" class="text-yellow-50 uppercase text-xs md:text-base font-semibold px-2 py-2 md:px-3 md:py-2 border
+                border-red-500 rounded-3xl bg-red-500 hover:bg-red-400 hover:border-red-400">Выйти</button>
+                </form>
+            @else
+                <a href="{{ route('reservation.create') }}" class="text-yellow-50 uppercase text-xs md:text-base font-semibold px-2 py-2 md:px-3 md:py-2 border
+            border-yellow-500 rounded-3xl bg-yellow-500 hover:bg-yellow-400 hover:border-yellow-400">Заказать столик</a>
+
+                <a href="{{ route('login') }}" class="uppercase font-semibold text-xs md:text-base px-3 md:px-5 py-2 border
             border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white">Кабинет</a>
+            @endauth
         </div>
+
 
         <!--Иконка меню-->
         <div class="flex lg:hidden ">

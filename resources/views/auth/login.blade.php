@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 <section class="h-screen relative bg-cover bg-center bg-no-repeat
@@ -63,4 +63,4 @@
         </div>
     </div>
 </section>
-</x-guest-layout>
+</x-app-layout>
