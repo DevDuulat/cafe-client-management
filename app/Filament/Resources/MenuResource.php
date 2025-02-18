@@ -22,6 +22,10 @@ class MenuResource extends Resource
 {
     protected static ?string $model = Menu::class;
 
+    protected static ?string $navigationLabel = 'Меню';
+    protected static ?string $pluralModelLabel = 'Меню';
+    protected static ?string $modelLabel = 'Меню';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -30,7 +34,8 @@ class MenuResource extends Resource
             ->schema([
                 TextInput::make('title_menu')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Название меню'),
 
                 TextInput::make('price')
                     ->label('Цена')
@@ -42,13 +47,15 @@ class MenuResource extends Resource
 
                 Textarea::make('body_menu')
                     ->required()
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->label('Описание меню'),
 
                 FileUpload::make('img_menu')
                     ->directory('menu_images')
                     ->image()
                     ->maxSize(2048)
-                    ->required(),
+                    ->required()
+                    ->label('Изображение меню'),
 
                 Select::make('menu_category_fk')
                     ->label('Категория')
@@ -63,13 +70,15 @@ class MenuResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title_menu')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Название меню'),
 
                 Tables\Columns\ImageColumn::make('img_menu')
                     ->disk('public')
                     ->width(50)
                     ->height(50)
-                    ->square(),
+                    ->square()
+                    ->label('Изображение'),
 
                 Tables\Columns\TextColumn::make('price')
                     ->label('Цена')
@@ -84,22 +93,24 @@ class MenuResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('Дата создания'),
 
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('Дата обновления'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->label('Редактировать'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()->label('Удалить выбранные'),
                 ]),
             ]);
     }
