@@ -40,36 +40,64 @@
         </div>
 
 
-        <!--Иконка меню-->
-        <div class="flex lg:hidden ">
+        <!-- Иконка меню -->
+        <div class="flex lg:hidden">
             <nav id="nav"
-                 class="absolute inset-x-0 bg-neutral-700 top-13 sm:top-14  border-b-1 hidden target:block peer ">
+                 class="absolute inset-x-0 bg-neutral-700 top-13 sm:top-14 border-b-1 hidden target:block peer">
                 <ul class="flex flex-col items-center gap-y-2 px-3 py-2">
-                    <li class="w-full">
-                        <a href="#menu" class="w-full inline-block font-bold text-center">Меню</a>
-                    </li>
-                    <li class="w-full">
-                        <a href="#about" class="w-full inline-block font-bold text-center">О нас</a>
-                    </li>
-                    <li class="w-full">
-                        <a href="#gelari" class="w-full inline-block font-bold text-center">Галерея</a>
-                    </li>
-                    <li class="w-full">
-                        <a href="#footer" class="w-full inline-block font-bold text-center">Контакты</a>
-                    </li>
-                    <li class="w-full">
-                        <a href="#" class=" w-full inline-block text-yellow-50 uppercase text-center text-xs  font-semibold px-2 py-2 border
-                                        border-yellow-500 rounded-3xl bg-yellow-500   ">Заказать
-                            столик</a>
-                    </li>
-                    <li class="w-full">
-                        <a href="login.html" class="w-full inline-block uppercase text-center font-semibold text-xs py-2 border
-                            border-yellow-500 rounded-3xl">Кабинет</a>
-                    </li>
+                    @auth
+                        <li class="w-full">
+                            <a href="{{ route('dashboard') }}" class="w-full inline-block font-bold text-center">Моя страница</a>
+                        </li>
+                        <li class="w-full">
+                            <a href="{{ route('menu.index') }}" class="w-full inline-block font-bold text-center">Меню</a>
+                        </li>
+                        <li class="w-full">
+                            <a href="{{ route('reservation.create') }}" class="w-full inline-block font-bold text-center">Бронь</a>
+                        </li>
+                        <li class="w-full">
+                            <a href="{{ route('reviews.create') }}" class="w-full inline-block font-bold text-center">Отзывы</a>
+                        </li>
+                        <li class="w-full">
+                            <form method="POST" action="{{ route('logout') }}" class="w-full">
+                                @csrf
+                                <button type="submit"
+                                        class="w-full inline-block text-yellow-50 uppercase text-center text-xs font-semibold px-2 py-2 border border-red-500 rounded-3xl bg-red-500 hover:bg-red-400 hover:border-red-400">
+                                    Выйти
+                                </button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="w-full">
+                            <a href="#menu" class="w-full inline-block font-bold text-center">Меню</a>
+                        </li>
+                        <li class="w-full">
+                            <a href="#about" class="w-full inline-block font-bold text-center">О нас</a>
+                        </li>
+                        <li class="w-full">
+                            <a href="#gallery" class="w-full inline-block font-bold text-center">Галерея</a>
+                        </li>
+                        <li class="w-full">
+                            <a href="#footer" class="w-full inline-block font-bold text-center">Контакты</a>
+                        </li>
+                        <li class="w-full">
+                            <a href="{{ route('reservation.create') }}"
+                               class="w-full inline-block text-yellow-50 uppercase text-center text-xs font-semibold px-2 py-2 border
+                        border-yellow-500 rounded-3xl bg-yellow-500 hover:bg-yellow-400 hover:border-yellow-400">
+                                Заказать столик
+                            </a>
+                        </li>
+                        <li class="w-full">
+                            <a href="{{ route('login') }}"
+                               class="w-full inline-block uppercase text-center font-semibold text-xs py-2 border border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white">
+                                Кабинет
+                            </a>
+                        </li>
+                    @endauth
                 </ul>
             </nav>
 
-            <!--Кнопка открыть меню -->
+            <!-- Кнопка открыть меню -->
             <a href="#nav" class="peer-target:hidden peer-target:[&+a]:block">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd"
@@ -77,16 +105,18 @@
                           clip-rule="evenodd"/>
                 </svg>
             </a>
-            <!--Кнопка закрыть меню -->
-            <a href="" class="hidden ">
+            <!-- Кнопка закрыть меню -->
+            <a href="" class="hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd"
                           d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
                           clip-rule="evenodd"/>
                 </svg>
             </a>
-
-
         </div>
+
+
+
+    </div>
     </div>
 </header>
