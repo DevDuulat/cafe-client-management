@@ -15,7 +15,7 @@ class ReviewController extends Controller
 
     public function create()
     {
-        return view('reviews.create');
+        return view('user.reviews.create');
     }
     public function store(Request $request)
     {

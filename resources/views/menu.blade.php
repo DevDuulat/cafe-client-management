@@ -1,7 +1,8 @@
-@extends('layouts.guest')
+@extends('layouts.app')
 
 @section('content')
-    <section id="menu" class="pt-10 pb-30 font-[Tinos] bg-[url('../img/menu/menu-bg.png')] bg-scroll center bg-no-repeat">
+    <section id="menu"
+             class="pt-10 pb-30 font-[Tinos] bg-[url('../img/menu/menu-bg.png')] bg-scroll center bg-no-repeat">
         <div class="container flex flex-col justify-center items-center gap-5">
             <h2 class="text-4xl text-yellow-500 text-center">Меню</h2>
 
@@ -13,7 +14,8 @@
                         </li>
                         @foreach($categories as $category)
                             <li>
-                                <a href="{{ route('menu.category', $category->id) }}" class="category-link">{{ $category->name_category }}</a>
+                                <a href="{{ route('menu.category', $category->id) }}"
+                                   class="category-link">{{ $category->name_category }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -23,9 +25,11 @@
             <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8" id="cards-container">
                 @foreach($menus as $menu)
 
-                    <div class="flex flex-col sm:flex-row items-center text-center sm:text-start bg-neutral-700 text-white p-4 rounded-xl relative transition-transform duration-300 hover:-translate-y-3" data-category="{{ $menu->menuCategory->name_category }}">
+                    <div class="flex flex-col sm:flex-row items-center text-center sm:text-start bg-neutral-700 text-white p-4 rounded-xl relative transition-transform duration-300 hover:-translate-y-3"
+                         data-category="{{ $menu->menuCategory->name_category }}">
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="{{ Storage::url($menu->img_menu) }}" alt="{{ $menu->title_menu }}" class="w-full h-full object-cover">
+                            <img src="{{ Storage::url($menu->img_menu) }}" alt="{{ $menu->title_menu }}"
+                                 class="w-full h-full object-cover">
                         </div>
                         <div class="ml-4 flex-1 pr-5">
                             <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">{{ $menu->title_menu }}</h3>

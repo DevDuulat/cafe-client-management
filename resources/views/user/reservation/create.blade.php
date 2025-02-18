@@ -1,7 +1,8 @@
-@extends('layouts.guest')
+@extends('layouts.app')
 
 @section('content')
-    <section class="relative bg-[url('https://github.com/TikhonovIvan/dip1/blob/main/img/bg-end.png?raw=true')] bg-cover bg-center bg-no-repeat flex items-start justify-center">
+    <section
+        class="relative bg-[url('https://github.com/TikhonovIvan/dip1/blob/main/img/bg-end.png?raw=true')] bg-cover bg-center bg-no-repeat flex items-start justify-center">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="container py-15 sm:pt-5 z-10">
             @if (session('success'))
