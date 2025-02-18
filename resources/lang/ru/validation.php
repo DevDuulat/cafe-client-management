@@ -16,6 +16,8 @@ return [
     'attributes' => [
         'name' => 'Имя',
         'phone' => 'Телефон',
+        'email' => 'E-mail',
+        'review' => 'Отзыв',
         'reservation_date' => 'Дата бронирования',
         'time' => 'Время',
         'table_number' => 'Номер столика',

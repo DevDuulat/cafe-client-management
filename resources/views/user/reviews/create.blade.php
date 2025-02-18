@@ -21,16 +21,6 @@
                             {{ session('success') }}
                         </div>
                     @endif
-
-                    @if ($errors->any())
-                        <div class="bg-red-500 text-white p-4 rounded-lg shadow-lg text-center text-lg mt-2">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                 </div>
 
 
@@ -39,17 +29,26 @@
                     <div class="flex flex-col gap-1 w-full">
                         <label for="name" class="text-xl">Имя</label>
                         <input id="name" type="text" name="name" placeholder="Введите ваше имя"
-                               class="border border-yellow-500 px-6 sm:px-15 py-2 rounded-xl max-w-[350px]" required>
+                               class="border border-yellow-500 px-6 sm:px-15 py-2 rounded-xl max-w-[350px]">
+                        @error('name')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-1 w-full">
                         <label for="email" class="text-xl">Email</label>
                         <input id="email" type="email" name="email" placeholder="Введите ваш email"
-                               class="border border-yellow-500 px-6 sm:px-15 py-2 rounded-xl max-w-[350px]" required>
+                               class="border border-yellow-500 px-6 sm:px-15 py-2 rounded-xl max-w-[350px]">
+                        @error('email')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-1 w-full">
                         <label for="review" class="text-xl">Отзыв</label>
                         <textarea name="review" id="review" placeholder="Напишите ваш отзыв"
-                                  class="border border-yellow-500 rounded-xl w-full h-40 p-2" required></textarea>
+                                  class="border border-yellow-500 rounded-xl w-full h-40 p-2"></textarea>
+                        @error('review')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <button type="submit"
                             class="mt-4 mb-4 text-lg bg-yellow-500 font-semibold text-yellow-50 px-15 py-2 rounded-xl">
