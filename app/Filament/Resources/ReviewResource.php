@@ -18,6 +18,9 @@ class ReviewResource extends Resource
 {
     protected static ?string $model = Review::class;
 
+    protected static ?string $navigationLabel = 'Отзывы';
+    protected static ?string $pluralModelLabel = 'Отзывы';
+    protected static ?string $modelLabel = 'Отзывы';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -26,21 +29,25 @@ class ReviewResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Имя'),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Электронная почта'),
                 Forms\Components\Textarea::make('review')
                     ->required()
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->label('Отзыв'),
                 Forms\Components\TextInput::make('user_name')
                     ->default(Auth::user()->name)
                     ->disabled()
                     ->label('Имя пользователя')
                     ->helperText('Имя пользователя, зарегистрированное в системе'),
                 Forms\Components\Toggle::make('is_published')
-                    ->required(),
+                    ->required()
+                    ->label('Опубликовано'),
             ]);
     }
 
@@ -49,32 +56,38 @@ class ReviewResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Имя'),
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Электронная почта'),
                 Tables\Columns\TextColumn::make('user_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('ID пользователя'),
                 Tables\Columns\IconColumn::make('is_published')
-                    ->boolean(),
+                    ->boolean()
+                    ->label('Опубликовано'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('Дата создания'),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('Дата обновления'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->label('Редактировать'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()->label('Удалить выбранные'),
                 ]),
             ]);
     }

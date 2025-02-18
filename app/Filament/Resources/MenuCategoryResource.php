@@ -10,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -17,6 +18,9 @@ class MenuCategoryResource extends Resource
 {
     protected static ?string $model = MenuCategory::class;
 
+    protected static ?string $navigationLabel = 'Категория меню';
+    protected static ?string $pluralModelLabel = 'Категория меню';
+    protected static ?string $modelLabel = 'Категория меню';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -25,7 +29,9 @@ class MenuCategoryResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name_category')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Название категории')
+                    ->placeholder('Введите название категории'),
             ]);
     }
 
@@ -34,25 +40,30 @@ class MenuCategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name_category')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Название категории'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
+                    ->label('Дата создания')
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
+                    ->label('Дата обновления')
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('Редактировать'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Удалить выбранное'),
                 ]),
             ]);
     }
@@ -60,7 +71,7 @@ class MenuCategoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -71,5 +82,10 @@ class MenuCategoryResource extends Resource
             'create' => Pages\CreateMenuCategory::route('/create'),
             'edit' => Pages\EditMenuCategory::route('/{record}/edit'),
         ];
+    }
+
+    public function getTitle(): string | Htmlable
+    {
+        return __('Custom Page Title');
     }
 }
