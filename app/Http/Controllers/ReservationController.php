@@ -49,9 +49,21 @@ class ReservationController extends Controller
             'table_number' => $request->table_number,
             'number_of_persons' => $request->number_of_persons,
             'location' => $request->location,
+            'status' => 'pending',
         ]);
 
         return redirect()->route('reservation.create')->with('success', 'Ваш столик успешно забронирован!');
+    }
+
+    public function updateStatus(Request $request, Reservation $reservation)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,approved,rejected'
+        ]);
+
+        $reservation->update(['status' => $request->status]);
+
+        return back()->with('success', 'Статус бронирования обновлён.');
     }
 
 }

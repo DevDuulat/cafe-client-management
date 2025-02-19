@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     use HasFactory;
+    public static array $statuses = ['pending', 'approved', 'rejected'];
 
     protected $fillable = [
         'name',
@@ -19,6 +20,7 @@ class Reservation extends Model
         'time',
         'wishes',
         'user_id',
+        'status',
     ];
 
     public function user()

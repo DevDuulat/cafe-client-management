@@ -19,14 +19,19 @@
                                 <p>Номер столика: {{ $reservation->table_number }}</p>
                             </div>
                             <hr class="block sm:hidden w-full text-yellow-500">
-                            <div class="flex flex-col gap-2 items-center text-lg">
+                            <div class="flex flex-col gap-2 items-center text-sm">
                                 <p>Статус</p>
                                 <div class="p-5 border border-yellow-500 rounded-2xl font-semibold">
-                                    <p class="text-yellow-500">В обработке</p>
-                                    <p class="text-green-500">Принят</p>
-                                    <p class="text-red-600">Отклонен</p>
+                                    @if ($reservation->status === 'pending')
+                                        <p class="text-yellow-500">В обработке</p>
+                                    @elseif ($reservation->status === 'approved')
+                                        <p class="text-green-500">Принят</p>
+                                    @elseif ($reservation->status === 'rejected')
+                                        <p class="text-red-600">Отклонен</p>
+                                    @endif
                                 </div>
                             </div>
+
                         </div>
                         <button class="w-full bg-yellow-500 text-white font-semibold text-lg py-1 rounded-2xl">Отменить</button>
                     </div>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('reservation_date');
             $table->string('phone');
             $table->string('location');
+            $table->string('status')->default('pending');
             $table->unsignedInteger('number_of_persons');
             $table->unsignedInteger('table_number');
             $table->time('time');
