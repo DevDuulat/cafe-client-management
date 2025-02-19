@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@source "../views";
+@tailwind utilities;
+
+@theme {
+    --font-family: "Tinos", serif;
+}
+
+@layer base {
+    .container {
+        max-width: 1280px !important;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@layer components {
+    .custom-number-input {
+        -moz-appearance: textfield;
+    }
+
+    .custom-number-input::-webkit-inner-spin-button,
+    .custom-number-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .custom-arrows {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .custom-arrows::before,
+    .custom-arrows::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6px;
+        border-color: transparent;
+        cursor: pointer;
+    }
+
+    .custom-arrows::before {
+        border-bottom-color: #eab308;
+    }
+
+    .custom-arrows::after {
+        border-top-color: #eab308;
+    }
+}
+
