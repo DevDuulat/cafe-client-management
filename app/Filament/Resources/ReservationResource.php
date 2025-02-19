@@ -3,16 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ReservationResource\Pages;
-use App\Filament\Resources\ReservationResource\RelationManagers;
 use App\Models\Reservation;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ReservationResource extends Resource
 {
@@ -46,7 +42,7 @@ class ReservationResource extends Resource
                 Forms\Components\TextInput::make('number_of_persons')
                     ->required()
                     ->numeric()
-                    ->label('Количество персон'),
+                    ->label('Кол-во гостей'),
                 Forms\Components\TextInput::make('table_number')
                     ->required()
                     ->numeric()
@@ -57,6 +53,15 @@ class ReservationResource extends Resource
                 Forms\Components\Textarea::make('wishes')
                     ->columnSpanFull()
                     ->label('Пожелания'),
+                Forms\Components\Select::make('status')
+                    ->options([
+                        'pending' => 'В обработке',
+                        'approved' => 'Принят',
+                        'rejected' => 'Отклонен',
+                    ])
+                    ->default('pending')
+                    ->required()
+                    ->label('Статус брони'),
             ]);
     }
 
@@ -84,13 +89,24 @@ class ReservationResource extends Resource
                 Tables\Columns\TextColumn::make('number_of_persons')
                     ->numeric()
                     ->sortable()
-                    ->label('Количество персон'),
+                    ->label('Кол-во гостей'),
                 Tables\Columns\TextColumn::make('table_number')
                     ->numeric()
                     ->sortable()
                     ->label('Номер стола'),
                 Tables\Columns\TextColumn::make('time')
                     ->label('Время'),
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Статус')
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'pending' => 'В обработке',
+                        'approved' => 'Принят',
+                        'rejected' => 'Отклонён',
+                        default => 'Неизвестно',
+                    })
+                    ->sortable()
+                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -103,7 +119,13 @@ class ReservationResource extends Resource
                     ->label('Дата обновления'),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('status')
+                    ->options([
+                        'pending' => 'В обработке',
+                        'approved' => 'Принят',
+                        'rejected' => 'Отклонен',
+                    ])
+                    ->label('Фильтр по статусу'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label('Редактировать'),
@@ -115,13 +137,6 @@ class ReservationResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
@@ -129,9 +144,5 @@ class ReservationResource extends Resource
             'create' => Pages\CreateReservation::route('/create'),
             'edit' => Pages\EditReservation::route('/{record}/edit'),
         ];
-    }
-    public function getTitle(): string | Htmlable
-    {
-        return __('Custom Page Title');
     }
 }

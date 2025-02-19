@@ -45,6 +45,7 @@ Route::get('/reviews/create', [ReviewController::class, 'create'])
     ->name('reviews.create');
 Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
 
+Route::patch('/reservation/{reservation}/status', [ReservationController::class, 'updateStatus'])->name('reservation.updateStatus');
 
 
 require __DIR__.'/auth.php';
