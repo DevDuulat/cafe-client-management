@@ -9,14 +9,16 @@ class ReservationController extends Controller
 {
     public function create()
     {
-        $reservations = Reservation::select('table_number', 'reservation_date', 'time')
+        $reservations = Reservation::select('reservation_date', 'time', 'location')
             ->get()
             ->map(function ($reservation) {
                 $reservation->time = \Carbon\Carbon::parse($reservation->time)->format('H:i');
                 return $reservation;
             });
+
         return view('user.reservation.create', compact('reservations'));
     }
+
 
     public function store(Request $request)
     {
@@ -25,19 +27,18 @@ class ReservationController extends Controller
             'phone' => 'required|string|max:20',
             'reservation_date' => 'required|date',
             'time' => 'required|string',
-            'table_number' => 'required|integer',
             'number_of_persons' => 'required|integer|min:1',
             'location' => 'required|string|max:255',
         ]);
 
         $existingReservation = Reservation::where([
-            ['table_number', $request->table_number],
             ['reservation_date', $request->reservation_date],
             ['time', $request->time],
+            ['location', $request->location],
         ])->exists();
 
         if ($existingReservation) {
-            return redirect()->back()->with('error', 'Этот столик уже забронирован на указанное время.');
+            return redirect()->back()->with('error', 'На это время в выбранной локации уже есть бронь.');
         }
 
         Reservation::create([
@@ -46,7 +47,6 @@ class ReservationController extends Controller
             'phone' => $request->phone,
             'reservation_date' => $request->reservation_date,
             'time' => $request->time,
-            'table_number' => $request->table_number,
             'number_of_persons' => $request->number_of_persons,
             'location' => $request->location,
             'status' => 'pending',
