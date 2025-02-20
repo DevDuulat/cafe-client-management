@@ -6,12 +6,13 @@
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="container py-15 sm:pt-5 z-10">
             @if (session('success'))
-                <div class="bg-green-500 text-white p-3 rounded-lg text-center mb-4">
+                <div class="bg-green-500 text-white p-3 rounded-lg text-center mb-4 max-w-sm mx-auto">
                     {{ session('success') }}
                 </div>
+
             @endif
             @if (session('error'))
-                <div class="bg-red-500 text-white p-3 rounded-lg text-center mb-4">
+                <div class="bg-red-500 text-white p-3 rounded-lg text-center mb-4 max-w-sm mx-auto">
                     {{ session('error') }}
                 </div>
             @endif
