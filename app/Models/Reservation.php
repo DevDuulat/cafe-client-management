@@ -16,7 +16,6 @@ class Reservation extends Model
         'phone',
         'location',
         'number_of_persons',
-        'table_number',
         'time',
         'wishes',
         'user_id',

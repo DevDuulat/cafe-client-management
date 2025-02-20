@@ -43,10 +43,6 @@ class ReservationResource extends Resource
                     ->required()
                     ->numeric()
                     ->label('Кол-во гостей'),
-                Forms\Components\TextInput::make('table_number')
-                    ->required()
-                    ->numeric()
-                    ->label('Номер стола'),
                 Forms\Components\TextInput::make('time')
                     ->required()
                     ->label('Время'),
@@ -90,10 +86,6 @@ class ReservationResource extends Resource
                     ->numeric()
                     ->sortable()
                     ->label('Кол-во гостей'),
-                Tables\Columns\TextColumn::make('table_number')
-                    ->numeric()
-                    ->sortable()
-                    ->label('Номер стола'),
                 Tables\Columns\TextColumn::make('time')
                     ->label('Время'),
                 Tables\Columns\TextColumn::make('status')

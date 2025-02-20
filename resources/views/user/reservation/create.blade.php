@@ -47,17 +47,7 @@
                             @error('phone') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                         </div>
 
-                        <div>
-                            <label class="block text-lg mb-1">Локация</label>
-                            <select name="location"
-                                    class="w-full border border-yellow-500 rounded-lg p-3 sm:p-4 bg-transparent text-white focus:ring-2 focus:ring-yellow-500">
-                                <option value="" disabled selected>Выберите кафе</option>
-                                <option value="ул. Чуй 231" class="text-black bg-yellow-500">ул. Чуй 231</option>
-                                <option value="ул. Самара 12" class="text-black bg-yellow-500">ул. Самара 12</option>
-                                <option value="ул. Чуй 11" class="text-black bg-yellow-500">ул. Чуй 11</option>
-                            </select>
-                            @error('location') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
-                        </div>
+
 
                         <div>
                             <label class="block text-lg mb-1">Число гостей</label>
@@ -66,15 +56,17 @@
                             @error('number_of_persons') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                         </div>
 
-                        <div>
-                            <label class="block text-lg mb-1">Номер столика</label>
-                            <select name="table_number" x-model="selectedTable"
+                        <div class="col-span-2">
+                            <label class="block text-lg mb-1">Локация</label>
+                            <select name="location" x-model="selectedLocation"
                                     class="w-full border border-yellow-500 rounded-lg p-3 sm:p-4 bg-transparent text-white focus:ring-2 focus:ring-yellow-500">
-                                @for ($i = 1; $i <= 20; $i++)
-                                    <option value="{{ $i }}">Столик {{ $i }}</option>
-                                @endfor
+                                <option value="" disabled selected>Выберите кафе</option>
+                                <option value="ул. Чуй 231" class="text-black bg-yellow-500">ул. Чуй 231</option>
+                                <option value="ул. Самара 12" class="text-black bg-yellow-500">ул. Самара 12</option>
+                                <option value="ул. Чуй 11" class="text-black bg-yellow-500">ул. Чуй 11</option>
                             </select>
-                            @error('table_number') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
+
+                            @error('location') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="col-span-2">
@@ -84,10 +76,12 @@
                                 @foreach (['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'] as $time)
                                     <button type="button"
                                             class="time-button w-full p-2 sm:p-3 border border-yellow-500 rounded-lg text-lg sm:text-xl focus:outline-none"
-                                            :class="isBooked('{{ $time }}') ? 'bg-red-500 text-white' : 'hover:bg-yellow-500 hover:text-black'"
+                                            :class="isBooked('{{ $time }}') ? 'bg-red-500 text-white cursor-not-allowed' : 'hover:bg-yellow-500 hover:text-black'"
+                                            :disabled="isBooked('{{ $time }}')"
                                             @click="setTime('{{ $time }}')">
                                         {{ $time }}
                                     </button>
+
                                 @endforeach
                             </div>
                             @error('time') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
@@ -116,30 +110,28 @@
         return {
             reservations: @json($reservations),
             selectedDate: '',
-            selectedTable: '',
+            selectedLocation: '',
             selectedTime: '',
 
-
             isBooked(time) {
-                const formattedTime = time.split(':')[0] + ':' + time.split(':')[1];
-                const isSlotBooked = this.reservations.some(reservation =>
-                    reservation.reservation_date === this.selectedDate &&
-                    reservation.table_number == this.selectedTable &&
-                    reservation.time === formattedTime
-                );
+                const formattedTime = time.substring(0, 5);
 
-                return isSlotBooked;
+                return this.reservations.some(reservation =>
+                    reservation.reservation_date === this.selectedDate &&
+                    reservation.location === this.selectedLocation &&
+                    reservation.time.substring(0, 5) === formattedTime
+                );
             },
 
-
             setTime(time) {
-
                 if (!this.isBooked(time)) {
                     this.selectedTime = time;
                 }
             }
         };
     }
+
+
 
 </script>
 <script>
