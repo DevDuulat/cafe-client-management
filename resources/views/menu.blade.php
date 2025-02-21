@@ -22,9 +22,8 @@
                 </nav>
             </div>
 
-            <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8" id="cards-container">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cards-container">
                 @foreach($menus as $menu)
-
                     <div class="flex flex-col sm:flex-row items-center text-center sm:text-start bg-neutral-700 text-white p-4 rounded-xl relative transition-transform duration-300 hover:-translate-y-3"
                          data-category="{{ $menu->menuCategory->name_category }}">
                         <div class="w-40 h-40 rounded-full overflow-hidden">
@@ -41,6 +40,7 @@
                     </div>
                 @endforeach
             </div>
+
         </div>
     </section>
 
