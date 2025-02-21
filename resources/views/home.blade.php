@@ -250,44 +250,101 @@
         <div class="w-full relative">
             <div class="swiper default-carousel swiper-container">
                 <div class="swiper-wrapper">
-                    @foreach ($reviews as $review)
-                        <div class="swiper-slide">
-                            <div class="h-96 flex justify-center items-center text-white">
-                                <div class="text-center px-4">
-                                    <p class="text-sm md:text-lg font-semibold mb-4 mx-auto max-w-[700px] w-full italic">
-                                        {{ $review->review }}
-                                    </p>
-                                    <div class="flex flex-col items-center">
-                                        <!-- Используем поле img_user для картинки пользователя (или заглушку) -->
-                                        <img class="w-16 h-16 rounded-full mr-4"
-                                             src="{{ $review->user_avatar ?? 'https://github.com/TikhonovIvan/dip1/blob/main/img/user-1.png?raw=true' }}"
-                                             alt="User Avatar">
-                                        <div>
-                                            <p class="text-xl font-semibold">{{ $review->name }}</p>
-                                            <p class="text-md text-gray-400 mb-4">{{ $review->user_city ?? 'Город, Страна' }}</p>
-                                            @if(auth()->check())
-                                                <a href="{{ route('reviews.create') }}"
-                                                   class="bg-yellow-500 py-2 px-5 rounded-3xl">
-                                                    Оставить свой отзыв
-                                                </a>
-                                            @else
-                                                <a href="{{ route('register') }}"
-                                                   class="bg-yellow-500 py-2 px-5 rounded-3xl">
-                                                    Оставить свой отзыв
-                                                </a>
-                                            @endif
+                    @if ($reviews->isEmpty())
+                        @php
+                            $defaultReviews = [
+                                [
+                                    'review' => 'Отличное кафе! Атмосфера уютная, еда вкусная, персонал очень вежливый. Обязательно вернусь!',
+                                    'name' => 'Анна Петрова',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                    'user_city' => 'Москва, Россия'
+                                ],
+                                [
+                                    'review' => 'Прекрасное место для отдыха с друзьями. Очень вкусный кофе и десерты.',
+                                    'name' => 'Игорь Смирнов',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                    'user_city' => 'Санкт-Петербург, Россия'
+                                ],
+                                [
+                                    'review' => 'Лучшее кафе в городе! Обслуживание на высшем уровне, всегда свежая выпечка.',
+                                    'name' => 'Екатерина Иванова',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                    'user_city' => 'Казань, Россия'
+                                ]
+                            ];
+                        @endphp
+
+                        @foreach ($defaultReviews as $review)
+                            <div class="swiper-slide">
+                                <div class="h-96 flex justify-center items-center text-white">
+                                    <div class="text-center px-4">
+                                        <p class="text-sm md:text-lg font-semibold mb-4 mx-auto max-w-[700px] w-full italic">
+                                            {{ $review['review'] }}
+                                        </p>
+                                        <div class="flex flex-col items-center">
+                                            <img class="w-16 h-16 rounded-full mr-4"
+                                                 src="{{ $review['user_avatar'] }}"
+                                                 alt="User Avatar">
+                                            <div>
+                                                <p class="text-xl font-semibold">{{ $review['name'] }}</p>
+                                                <p class="text-md text-gray-400 mb-4">{{ $review['user_city'] }}</p>
+                                                @if(auth()->check())
+                                                    <a href="{{ route('reviews.create') }}"
+                                                       class="bg-yellow-500 py-2 px-5 rounded-3xl">
+                                                        Оставить свой отзыв
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('register') }}"
+                                                       class="bg-yellow-500 py-2 px-5 rounded-3xl">
+                                                        Оставить свой отзыв
+                                                    </a>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        @foreach ($reviews as $review)
+                            <div class="swiper-slide">
+                                <div class="h-96 flex justify-center items-center text-white">
+                                    <div class="text-center px-4">
+                                        <p class="text-sm md:text-lg font-semibold mb-4 mx-auto max-w-[700px] w-full italic">
+                                            {{ $review->review }}
+                                        </p>
+                                        <div class="flex flex-col items-center">
+                                            <img class="w-16 h-16 rounded-full mr-4"
+                                                 src="{{ $review->user_avatar ?? 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg' }}"
+                                                 alt="User Avatar">
+                                            <div>
+                                                <p class="text-xl font-semibold">{{ $review->name }}</p>
+                                                <p class="text-md text-gray-400 mb-4">{{ $review->user_city ?? 'Город, Страна' }}</p>
+                                                @if(auth()->check())
+                                                    <a href="{{ route('reviews.create') }}"
+                                                       class="bg-yellow-500 py-2 px-5 rounded-3xl">
+                                                        Оставить свой отзыв
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('register') }}"
+                                                       class="bg-yellow-500 py-2 px-5 rounded-3xl">
+                                                        Оставить свой отзыв
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
 
                 <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
+
     <section id="gallery" class="py-5 sm:py-10">
         <div class="container text-center">
             <h3 class="text-4xl mb-10 ">
