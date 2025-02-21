@@ -66,4 +66,16 @@ class ReservationController extends Controller
         return back()->with('success', 'Статус бронирования обновлён.');
     }
 
+    public function destroy(Reservation $reservation)
+    {
+        if ($reservation->user_id !== auth()->id()) {
+            return redirect()->back()->with('error', 'Вы не можете удалить эту бронь.');
+        }
+
+        $reservation->delete();
+
+        return redirect()->back()->with('success', 'Бронирование успешно отменено.');
+    }
+
+
 }

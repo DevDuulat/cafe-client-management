@@ -33,7 +33,16 @@
                             </div>
 
                         </div>
-                        <button class="w-full bg-yellow-500 text-white font-semibold text-lg py-1 rounded-2xl">Отменить</button>
+                        <form action="{{ route('reservation.destroy', $reservation->id) }}" method="POST" class="w-full">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="w-full bg-red-500 text-white font-semibold text-lg py-1 rounded-2xl cursor-pointer"
+                                    onclick="return confirm('Вы уверены, что хотите отменить бронирование?');">
+                                Отменить
+                            </button>
+                        </form>
+
+
                     </div>
                 @endforeach
             </div>
