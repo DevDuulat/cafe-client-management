@@ -6,16 +6,25 @@
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="container py-15 sm:pt-5 z-10">
             @if (session('success'))
-                <div class="bg-green-500 text-white p-3 rounded-lg text-center mb-4 max-w-sm mx-auto">
+                <div id="success-alert" class="bg-green-500 text-white p-3 rounded-lg text-center mb-4 max-w-sm mx-auto relative">
                     {{ session('success') }}
+                    <button onclick="document.getElementById('success-alert').style.display='none'"
+                            class="absolute top-1 right-2 text-white font-bold">
+                        ✖
+                    </button>
                 </div>
+            @endif
 
-            @endif
             @if (session('error'))
-                <div class="bg-red-500 text-white p-3 rounded-lg text-center mb-4 max-w-sm mx-auto">
+                <div id="error-alert" class="bg-red-500 text-white p-3 rounded-lg text-center mb-4 max-w-sm mx-auto relative">
                     {{ session('error') }}
+                    <button onclick="document.getElementById('error-alert').style.display='none'"
+                            class="absolute top-1 right-2 text-white font-bold">
+                        ✖
+                    </button>
                 </div>
             @endif
+
             <div class="text-center">
                 <h3 class="text-2xl sm:text-4xl text-yellow-500  mb-3">Сделать бронь столика</h3>
             </div>
