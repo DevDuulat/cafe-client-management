@@ -17,10 +17,15 @@
             <div class="flex mt-10">
                 <div class="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-md z-50">
                     @if (session('success'))
-                        <div class="bg-green-500 text-white p-4 rounded-lg shadow-lg text-center text-lg">
+                        <div id="success-alert" class="bg-green-500 text-white p-4 rounded-lg shadow-lg text-center text-lg relative">
                             {{ session('success') }}
+                            <button onclick="document.getElementById('success-alert').style.display='none'"
+                                    class="absolute top-2 right-3 text-white font-bold text-xl">
+                                ✖
+                            </button>
                         </div>
                     @endif
+
                 </div>
 
 
