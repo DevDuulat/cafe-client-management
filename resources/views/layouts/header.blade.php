@@ -1,11 +1,11 @@
-<header class="bg-neutral-800 fixed top-0 inset-x-0 z-20 sm:static">
+<header class="fixed inset-x-0 top-0 z-20 bg-neutral-800 sm:static">
     <div class="flex px-5 items-center justify-between text-yellow-500 py-3 sм:py-6">
         <a href="{{ route('home') }}">
             <span class="text-xl sm:text-2xl">Coffee -&- Home</span>
         </a>
 
         <nav class="hidden lg:block">
-            <ul class="flex items-center gap-x-4 lg:gap-x-8 uppercase">
+            <ul class="flex items-center uppercase gap-x-4 lg:gap-x-8">
 
 
                 @auth
@@ -14,28 +14,27 @@
                     <li><a href="{{ route('reservation.create') }}" class="font-bold hover:text-yellow-50">Бронь</a></li>
                     <li><a href="{{ route('reviews.create') }}" class="font-bold hover:text-yellow-50">Отзывы</a></li>
                 @else
+                @unless (in_array(Route::currentRouteName(), ['register', 'login']))
                     <li><a href="#menu" class="font-bold hover:text-yellow-50">Меню</a></li>
                     <li><a href="#about" class="font-bold hover:text-yellow-50">О нас</a></li>
                     <li><a href="#gallery" class="font-bold hover:text-yellow-50">Галерея</a></li>
                     <li><a href="#footer" class="font-bold hover:text-yellow-50">Контакты</a></li>
+                 @endunless
                 @endauth
             </ul>
         </nav>
 
 
-        <div class="items-center gap-x-6 hidden sm:flex">
+        <div class="items-center hidden gap-x-6 sm:flex">
             @auth
                 <form method="POST" action="{{ route('logout') }}" class="inline">
                     @csrf
-                    <button type="submit" class="text-yellow-50 uppercase text-xs md:text-base font-semibold px-2 py-2 md:px-3 md:py-2 border
-                border-red-500 rounded-3xl bg-red-500 hover:bg-red-400 hover:border-red-400">Выйти</button>
+                    <button type="submit" class="px-2 py-2 text-xs font-semibold uppercase bg-red-500 border border-red-500 text-yellow-50 md:text-base md:px-3 md:py-2 rounded-3xl hover:bg-red-400 hover:border-red-400">Выйти</button>
                 </form>
             @else
-                <a href="{{ route('reservation.create') }}" class="text-yellow-50 uppercase text-xs md:text-base font-semibold px-2 py-2 md:px-3 md:py-2 border
-            border-yellow-500 rounded-3xl bg-yellow-500 hover:bg-yellow-400 hover:border-yellow-400">Заказать столик</a>
+                <a href="{{ route('reservation.create') }}" class="px-2 py-2 text-xs font-semibold uppercase bg-yellow-500 border border-yellow-500 text-yellow-50 md:text-base md:px-3 md:py-2 rounded-3xl hover:bg-yellow-400 hover:border-yellow-400">Заказать столик</a>
 
-                <a href="{{ route('login') }}" class="uppercase font-semibold text-xs md:text-base px-3 md:px-5 py-2 border
-            border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white">Кабинет</a>
+                <a href="{{ route('login') }}" class="px-3 py-2 text-xs font-semibold uppercase border border-yellow-500 md:text-base md:px-5 rounded-3xl hover:bg-amber-400 hover:text-white">Кабинет</a>
             @endauth
         </div>
 
@@ -43,53 +42,55 @@
         <!-- Иконка меню -->
         <div class="flex lg:hidden">
             <nav id="nav"
-                 class="absolute inset-x-0 bg-neutral-700 top-13 sm:top-14 border-b-1 hidden target:block peer">
-                <ul class="flex flex-col items-center gap-y-2 px-3 py-2">
+                 class="absolute inset-x-0 hidden bg-neutral-700 top-13 sm:top-14 border-b-1 target:block peer">
+                <ul class="flex flex-col items-center px-3 py-2 gap-y-2">
                     @auth
                         <li class="w-full">
-                            <a href="{{ route('dashboard') }}" class="w-full inline-block font-bold text-center">Моя страница</a>
+                            <a href="{{ route('dashboard') }}" class="inline-block w-full font-bold text-center">Моя страница</a>
                         </li>
                         <li class="w-full">
-                            <a href="{{ route('menu.index') }}" class="w-full inline-block font-bold text-center">Меню</a>
+                            <a href="{{ route('menu.index') }}" class="inline-block w-full font-bold text-center">Меню</a>
                         </li>
                         <li class="w-full">
-                            <a href="{{ route('reservation.create') }}" class="w-full inline-block font-bold text-center">Бронь</a>
+                            <a href="{{ route('reservation.create') }}" class="inline-block w-full font-bold text-center">Бронь</a>
                         </li>
                         <li class="w-full">
-                            <a href="{{ route('reviews.create') }}" class="w-full inline-block font-bold text-center">Отзывы</a>
+                            <a href="{{ route('reviews.create') }}" class="inline-block w-full font-bold text-center">Отзывы</a>
                         </li>
                         <li class="w-full">
                             <form method="POST" action="{{ route('logout') }}" class="w-full">
                                 @csrf
                                 <button type="submit"
-                                        class="w-full inline-block text-yellow-50 uppercase text-center text-xs font-semibold px-2 py-2 border border-red-500 rounded-3xl bg-red-500 hover:bg-red-400 hover:border-red-400">
+                                        class="inline-block w-full px-2 py-2 text-xs font-semibold text-center uppercase bg-red-500 border border-red-500 text-yellow-50 rounded-3xl hover:bg-red-400 hover:border-red-400">
                                     Выйти
                                 </button>
                             </form>
                         </li>
                     @else
+                    @unless (in_array(Route::currentRouteName(), ['register', 'login']))
                         <li class="w-full">
-                            <a href="#menu" class="w-full inline-block font-bold text-center">Меню</a>
+                            <a href="#menu" class="inline-block w-full font-bold text-center">Меню</a>
                         </li>
                         <li class="w-full">
-                            <a href="#about" class="w-full inline-block font-bold text-center">О нас</a>
+                            <a href="#about" class="inline-block w-full font-bold text-center">О нас</a>
                         </li>
                         <li class="w-full">
-                            <a href="#gallery" class="w-full inline-block font-bold text-center">Галерея</a>
+                            <a href="#gallery" class="inline-block w-full font-bold text-center">Галерея</a>
                         </li>
                         <li class="w-full">
-                            <a href="#footer" class="w-full inline-block font-bold text-center">Контакты</a>
+                            <a href="#footer" class="inline-block w-full font-bold text-center">Контакты</a>
                         </li>
+                        @endunless
+                    </ul>
                         <li class="w-full">
                             <a href="{{ route('reservation.create') }}"
-                               class="w-full inline-block text-yellow-50 uppercase text-center text-xs font-semibold px-2 py-2 border
-                        border-yellow-500 rounded-3xl bg-yellow-500 hover:bg-yellow-400 hover:border-yellow-400">
+                               class="inline-block w-full px-2 py-2 text-xs font-semibold text-center uppercase bg-yellow-500 border border-yellow-500 text-yellow-50 rounded-3xl hover:bg-yellow-400 hover:border-yellow-400">
                                 Заказать столик
                             </a>
                         </li>
                         <li class="w-full">
                             <a href="{{ route('login') }}"
-                               class="w-full inline-block uppercase text-center font-semibold text-xs py-2 border border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white">
+                               class="inline-block w-full py-2 text-xs font-semibold text-center uppercase border border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white">
                                 Кабинет
                             </a>
                         </li>
