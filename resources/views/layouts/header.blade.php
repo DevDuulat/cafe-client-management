@@ -7,7 +7,7 @@
         <nav class="hidden lg:block">
             <ul class="flex items-center uppercase gap-x-4 lg:gap-x-8">
                 @auth
-                    <li><a href="{{ route('dashboard') }}" class="font-bold hover:text-yellow-50">Моя страница</a></li>
+                    <li><a href="{{ route('dashboard') }}" class="font-bold hover:text-yellow-50">Главная</a></li>
                     <li><a href="{{ route('menu.index') }}" class="font-bold hover:text-yellow-50">Меню</a></li>
                     <li><a href="{{ route('reservation.create') }}" class="font-bold hover:text-yellow-50">Бронь</a></li>
                     <li><a href="{{ route('reviews.create') }}" class="font-bold hover:text-yellow-50">Отзывы</a></li>
@@ -43,7 +43,7 @@
             <nav id="nav" class="absolute inset-x-0 hidden bg-neutral-700 top-13 sm:top-14 border-b-1 target:block peer">
                 <ul class="flex flex-col items-center px-3 py-2 gap-y-2">
                     @auth
-                        <li class="w-full"><a href="{{ route('dashboard') }}" class="inline-block w-full font-bold text-center">Моя страница</a></li>
+                        <li class="w-full"><a href="{{ route('dashboard') }}" class="inline-block w-full font-bold text-center">Главная</a></li>
                         <li class="w-full"><a href="{{ route('menu.index') }}" class="inline-block w-full font-bold text-center">Меню</a></li>
                         <li class="w-full"><a href="{{ route('reservation.create') }}" class="inline-block w-full font-bold text-center">Бронь</a></li>
                         <li class="w-full"><a href="{{ route('reviews.create') }}" class="inline-block w-full font-bold text-center">Отзывы</a></li>
