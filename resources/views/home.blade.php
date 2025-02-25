@@ -287,7 +287,6 @@
                                                  alt="User Avatar">
                                             <div>
                                                 <p class="text-xl font-semibold">{{ $review['name'] }}</p>
-                                                <p class="text-md text-gray-400 mb-4">{{ $review['user_city'] }}</p>
                                                 @if(auth()->check())
                                                     <a href="{{ route('reviews.create') }}"
                                                        class="bg-yellow-500 py-2 px-5 rounded-3xl">
@@ -319,7 +318,6 @@
                                                  alt="User Avatar">
                                             <div>
                                                 <p class="text-xl font-semibold">{{ $review->name }}</p>
-                                                <p class="text-md text-gray-400 mb-4">{{ $review->user_city ?? 'Город, Страна' }}</p>
                                                 @if(auth()->check())
                                                     <a href="{{ route('reviews.create') }}"
                                                        class="bg-yellow-500 py-2 px-5 rounded-3xl">
