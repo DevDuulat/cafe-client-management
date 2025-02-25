@@ -48,7 +48,7 @@
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-500" />
                     </div>
 
-                    <button type="submit" class="mt-4 bg-yellow-500 text-black font-semibold px-6 py-2 rounded-3xl w-full hover:bg-yellow-600 transition">
+                    <button type="submit" class="mt-4 bg-yellow-500 text-white font-semibold px-6 py-2 rounded-3xl w-full hover:bg-yellow-600 transition">
                         Регистрация
                     </button>
                 </form>

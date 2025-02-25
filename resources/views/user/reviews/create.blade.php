@@ -2,7 +2,7 @@
 
 @section('content')
     <section
-        class="relative bg-[url('{{ asset('img/bg-end.png') }}')] bg-cover bg-center bg-no-repeat flex items-start justify-center">
+        class="relative  bg-[url('https://github.com/TikhonovIvan/dip1/blob/main/img/bg-end.png?raw=true?raw=true')] bg-cover bg-center bg-no-repeat flex items-start justify-center">
         <div class="absolute inset-0 bg-black opacity-40"></div>
 
         <div class="container py-15 sm:pt-5 z-10">

@@ -41,7 +41,7 @@
                         <label for="remember_me" class="text-sm text-center text-white">Запомнить меня</label>
                     </div>
 
-                    <button class="w-full px-6 py-2 mt-4 font-semibold text-black transition bg-yellow-500 rounded-3xl hover:bg-yellow-600">
+                    <button class="w-full px-6 py-2 mt-4 font-semibold text-white transition bg-yellow-500 rounded-3xl hover:bg-yellow-600">
                         Войти
                     </button>
                 </form>
