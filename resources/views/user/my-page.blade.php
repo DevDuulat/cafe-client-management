@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id="menu" class="pt-10 pb-30 font-[Tinos] bg-[url('https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-bg.png?raw=true')] bg-scroll center bg-no-repeat">
+    <section id="menu" class="pt-20 pb-30 font-[Tinos] bg-[url('https://github.com/TikhonovIvan/dip1/blob/main/img/menu/menu-bg.png?raw=true')] bg-scroll center bg-no-repeat">
         <div class="container flex flex-col justify-center items-center gap-5">
             <h2 class="pb-12 text-4xl text-yellow-500 text-center">Мои бронирования</h2>
 
