@@ -254,17 +254,32 @@
                         @php
                             $defaultReviews = [
                                 [
-                                    'review' => 'Отличное кафе! Атмосфера уютная, еда вкусная, персонал очень вежливый. Обязательно вернусь!',
+                                    'review' => 'Это мой любимый итальянский ресторан. Мне нравится дегустационное меню, здесь все классное. Я предпочитаю карпаччо и спаржу. Жаль, что ресторан стал более известным, и в час пик стало сложнее зарезервировать столик',
                                     'name' => 'Анна Петрова',
                                     'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
                                 ],
                                 [
-                                    'review' => 'Прекрасное место для отдыха с друзьями. Очень вкусный кофе и десерты.',
+                                    'review' => 'Моя семья и я сам большие поклонники этого места. Обслуживающий персонал супер дружелюбный, а еда великолепная. Цыпленок очень хорош, чесночный соус отличный. Мороженое с фруктами тоже вкусное. Рекомендую!',
                                     'name' => 'Игорь Смирнов',
                                     'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
                                 ],
                                 [
-                                    'review' => 'Лучшее кафе в городе! Обслуживание на высшем уровне, всегда свежая выпечка.',
+                                    'review' => 'Я прихожу сюда каждое Рождество, и мне очень нравится паста! Она достойна своей цены!',
+                                    'name' => 'Екатерина Иванова',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                ],
+                                [
+                                    'review' => 'Отличная пицца, лазанья, лучше эскалопы, которые я ел. Десерт просто фантастический;',
+                                    'name' => 'Анна Петрова',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                ],
+                                [
+                                    'review' => 'Моя семья и я сам большие поклонники этого места. Обслуживающий персонал супер дружелюбный, а еда великолепная. Цыпленок очень хорош, чесночный соус отличный. Мороженое с фруктами тоже вкусное. Рекомендую!',
+                                    'name' => 'Игорь Смирнов',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                ],
+                                [
+                                    'review' => 'Я прихожу сюда каждое Рождество, и мне очень нравится паста! Она достойна своей цены!',
                                     'name' => 'Екатерина Иванова',
                                     'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
                                 ]
@@ -279,11 +294,11 @@
                                             {{ $review['review'] }}
                                         </p>
                                         <div class="flex flex-col items-center">
-                                            <img class="w-16 h-16 rounded-full mr-4"
+                                            <img class="w-16 h-16 rounded-full"
                                                  src="{{ $review['user_avatar'] }}"
                                                  alt="User Avatar">
                                             <div>
-                                                <p class="text-xl font-semibold">{{ $review['name'] }}</p>
+                                                <p class="text-xl font-semibold  mb-3">{{ $review['name'] }}</p>
                                                 @if(auth()->check())
                                                     <a href="{{ route('reviews.create') }}"
                                                        class="bg-yellow-500 py-2 px-5 rounded-3xl">
@@ -310,11 +325,11 @@
                                             {{ $review->review }}
                                         </p>
                                         <div class="flex flex-col items-center">
-                                            <img class="w-16 h-16 rounded-full mr-4"
+                                            <img class="w-16 h-16 rounded-full"
                                                  src="{{ $review->user_avatar ?? 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg' }}"
                                                  alt="User Avatar">
                                             <div>
-                                                <p class="text-xl font-semibold">{{ $review->name }}</p>
+                                                <p class="text-xl font-semibold  mb-3">{{ $review->name }}</p>
                                                 @if(auth()->check())
                                                     <a href="{{ route('reviews.create') }}"
                                                        class="bg-yellow-500 py-2 px-5 rounded-3xl">
