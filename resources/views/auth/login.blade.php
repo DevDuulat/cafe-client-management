@@ -2,9 +2,11 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <section class="relative flex items-center justify-start h-screen pl-10 bg-center bg-no-repeat bg-cover"
-             style="background-image: url('https://plus.unsplash.com/premium_photo-1675237625862-d982e7f44696?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        <div class="absolute inset-0 bg-black opacity-40"></div>
+    <section class="h-screen relative bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
+             style="background-image: url('https://github.com/TikhonovIvan/dip1/blob/main/img/hero_bg.png?raw=true');">
+        <div class="absolute top-1/2 -right-30 transform -translate-y-1/2  w-1/2 hidden sm:block">
+            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/rectangle.png?raw=true" alt="Rectangle">
+        </div>
 
         <div class="container z-10">
             <div class="bg-neutral-700 p-6 sm:px-16 sm:py-10 max-w-[450px] rounded-2xl shadow-lg">
