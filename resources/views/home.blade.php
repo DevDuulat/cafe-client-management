@@ -235,7 +235,7 @@
                             3500
                         </div>
                     </div>
-                    <div class="hidden md:block md- text-center">
+                    <div class="md:block md- text-center">
                         <a href="{{ route('menu.index') }}"
 
                            class="text-white bg-yellow-500 px-4 py-2 rounded-2xl uppercase font-semibold hover:bg-yellow-700 ">Меню</a>
