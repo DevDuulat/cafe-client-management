@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="h-screen relative bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
-             style="background-image: url('https://github.com/TikhonovIvan/dip1/blob/main/img/hero_bg2.jpg?raw=true');">
+             style="background-image: url('https://github.com/TikhonovIvan/dip1/blob/main/img/hero_bg.png?raw=true');">
         <div class="absolute top-1/2 -right-30 transform -translate-y-1/2  w-1/2 hidden sm:block">
             <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/rectangle.png?raw=true" alt="Rectangle">
         </div>
@@ -13,7 +13,7 @@
                     Добро пожаловать в
                 </h2>
                 <h1 class="text-[50px] sm:text-[60px] md:text-[90px] text-yellow-500 font-[Tinos]">
-                    Наше кафе
+                    Наш ресторан
                 </h1>
                 <div class="flex items-center justify-center gap-4 text-center ">
                     <span
@@ -159,7 +159,7 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-1.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
@@ -179,14 +179,14 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-2.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
-                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Лумпия с соусом</h3>
+                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Рыба с овощами</h3>
                             <p class="text-md text-gray-300">
-                                Начинка из свиного фарша, обжаренного с луком, морковью и другими овощами
+                                Очень нежная рыбка, минимум масла и калорий, гарнир готовится в самой рыбе
                             </p>
                         </div>
                         <!-- Цена -->
@@ -199,14 +199,14 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-4.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
-                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Лумпия с соусом</h3>
+                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Чили с тофу</h3>
                             <p class="text-md text-gray-300">
-                                Начинка из свиного фарша, обжаренного с луком, морковью и другими овощами
+                                Очень острое и пряное блюдо из рецептов индийско-китайской кухни
                             </p>
                         </div>
                         <!-- Цена -->
@@ -219,14 +219,14 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-3.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
-                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Лумпия с соусом</h3>
+                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Яичница с огурцом</h3>
                             <p class="text-md text-gray-300">
-                                Начинка из свиного фарша, обжаренного с луком, морковью и другими овощами
+                                Наивкуснейшая яичница с солёными огурцами на завтрак
                             </p>
                         </div>
                         <!-- Цена -->
@@ -235,7 +235,7 @@
                             3500
                         </div>
                     </div>
-                    <div class="hidden md:block md- text-center">
+                    <div class="md:block md- text-center">
                         <a href="{{ route('menu.index') }}"
 
                            class="text-white bg-yellow-500 px-4 py-2 rounded-2xl uppercase font-semibold hover:bg-yellow-700 ">Меню</a>
@@ -254,17 +254,32 @@
                         @php
                             $defaultReviews = [
                                 [
-                                    'review' => 'Отличное кафе! Атмосфера уютная, еда вкусная, персонал очень вежливый. Обязательно вернусь!',
+                                    'review' => 'Это мой любимый итальянский ресторан. Мне нравится дегустационное меню, здесь все классное. Я предпочитаю карпаччо и спаржу. Жаль, что ресторан стал более известным, и в час пик стало сложнее зарезервировать столик',
                                     'name' => 'Анна Петрова',
                                     'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
                                 ],
                                 [
-                                    'review' => 'Прекрасное место для отдыха с друзьями. Очень вкусный кофе и десерты.',
+                                    'review' => 'Моя семья и я сам большие поклонники этого места. Обслуживающий персонал супер дружелюбный, а еда великолепная. Цыпленок очень хорош, чесночный соус отличный. Мороженое с фруктами тоже вкусное. Рекомендую!',
                                     'name' => 'Игорь Смирнов',
                                     'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
                                 ],
                                 [
-                                    'review' => 'Лучшее кафе в городе! Обслуживание на высшем уровне, всегда свежая выпечка.',
+                                    'review' => 'Я прихожу сюда каждое Рождество, и мне очень нравится паста! Она достойна своей цены!',
+                                    'name' => 'Екатерина Иванова',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                ],
+                                [
+                                    'review' => 'Отличная пицца, лазанья, лучше эскалопы, которые я ел. Десерт просто фантастический;',
+                                    'name' => 'Анна Петрова',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                ],
+                                [
+                                    'review' => 'Моя семья и я сам большие поклонники этого места. Обслуживающий персонал супер дружелюбный, а еда великолепная. Цыпленок очень хорош, чесночный соус отличный. Мороженое с фруктами тоже вкусное. Рекомендую!',
+                                    'name' => 'Игорь Смирнов',
+                                    'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
+                                ],
+                                [
+                                    'review' => 'Я прихожу сюда каждое Рождество, и мне очень нравится паста! Она достойна своей цены!',
                                     'name' => 'Екатерина Иванова',
                                     'user_avatar' => 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg',
                                 ]
@@ -279,11 +294,11 @@
                                             {{ $review['review'] }}
                                         </p>
                                         <div class="flex flex-col items-center">
-                                            <img class="w-16 h-16 rounded-full mr-4"
+                                            <img class="w-16 h-16 rounded-full"
                                                  src="{{ $review['user_avatar'] }}"
                                                  alt="User Avatar">
                                             <div>
-                                                <p class="text-xl font-semibold">{{ $review['name'] }}</p>
+                                                <p class="text-xl font-semibold  mb-3">{{ $review['name'] }}</p>
                                                 @if(auth()->check())
                                                     <a href="{{ route('reviews.create') }}"
                                                        class="bg-yellow-500 py-2 px-5 rounded-3xl">
@@ -310,11 +325,11 @@
                                             {{ $review->review }}
                                         </p>
                                         <div class="flex flex-col items-center">
-                                            <img class="w-16 h-16 rounded-full mr-4"
+                                            <img class="w-16 h-16 rounded-full"
                                                  src="{{ $review->user_avatar ?? 'https://i.pinimg.com/1200x/5b/30/5f/5b305fca208d6162872c715f4c7643e1.jpg' }}"
                                                  alt="User Avatar">
                                             <div>
-                                                <p class="text-xl font-semibold">{{ $review->name }}</p>
+                                                <p class="text-xl font-semibold  mb-3">{{ $review->name }}</p>
                                                 @if(auth()->check())
                                                     <a href="{{ route('reviews.create') }}"
                                                        class="bg-yellow-500 py-2 px-5 rounded-3xl">

@@ -34,7 +34,7 @@
             @else
                 <a href="{{ route('reservation.create') }}" class="px-2 py-2 text-xs font-semibold uppercase bg-yellow-500 border border-yellow-500 text-yellow-50 md:text-base md:px-3 md:py-2 rounded-3xl hover:bg-yellow-400 hover:border-yellow-400">Заказать столик</a>
 
-                <a href="{{ route('login') }}" class="px-3 py-2 text-xs font-semibold uppercase border border-yellow-500 md:text-base md:px-5 rounded-3xl hover:bg-amber-400 hover:text-white">Кабинет</a>
+                <a href="{{ route('login') }}" class="px-3 py-2 text-xs font-semibold uppercase border border-yellow-500 md:text-base md:px-5 rounded-3xl hover:bg-amber-400 hover:text-white hidden">Кабинет</a>
             @endauth
         </div>
 
@@ -69,7 +69,7 @@
                             </a>
                         </li>
                         <li class="w-full">
-                            <a href="{{ route('login') }}" class="inline-block w-full py-2 text-xs font-semibold text-center uppercase border border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white">
+                            <a href="{{ route('login') }}" class="inline-block w-full py-2 text-xs font-semibold text-center uppercase border border-yellow-500 rounded-3xl hover:bg-amber-400 hover:text-white hidden">
                                 Кабинет
                             </a>
                         </li>
