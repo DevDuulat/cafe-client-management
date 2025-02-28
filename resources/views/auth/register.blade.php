@@ -14,39 +14,43 @@
                     @csrf
 
                     <!-- Name -->
-                    <div class="flex flex-col gap-1">
-                        <label for="name" class="text-yellow-500">Имя</label>
-                        <input id="name" type="text" name="name" placeholder="Введите имя..."
-                               class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white">
-                        <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500" />
+                    <div class="flex flex-col gap-4 items-center justify-center text-white">
+                        <!-- Name -->
+                        <div class="flex flex-col gap-1 w-full max-w-md">
+                            <label for="name" class="text-white text-center">Имя</label>
+                            <input id="name" type="text" name="name" placeholder="Введите имя..."
+                                   class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white text-center">
+                            <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-center" />
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex flex-col gap-1 w-full max-w-md">
+                            <label for="email" class="text-white text-center">Email</label>
+                            <input id="email" type="email" name="email" placeholder="Введите email..."
+                                   class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white text-center"
+                                   value="{{ old('email') }}" required autocomplete="username">
+                            <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500 text-center" />
+                        </div>
+
+                        <!-- Password -->
+                        <div class="flex flex-col gap-1 w-full max-w-md">
+                            <label for="password" class="text-white text-center">Пароль</label>
+                            <input id="password" type="password" name="password" placeholder="Введите пароль..."
+                                   class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white text-center"
+                                   required autocomplete="new-password">
+                            <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-500 text-center" />
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="flex flex-col gap-1 w-full max-w-md">
+                            <label for="password_confirmation" class="text-white text-center">Повторите пароль</label>
+                            <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Повторите пароль..."
+                                   class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white text-center"
+                                   required autocomplete="new-password">
+                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-500 text-center" />
+                        </div>
                     </div>
 
-                    <!-- Email Address -->
-                    <div class="flex flex-col gap-1">
-                        <label for="email" class="text-yellow-500">Email</label>
-                        <input id="email" type="email" name="email" placeholder="Введите email..."
-                               class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white"
-                               value="{{ old('email') }}" required autocomplete="username">
-                        <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500" />
-                    </div>
-
-                    <!-- Password -->
-                    <div class="flex flex-col gap-1">
-                        <label for="password" class="text-yellow-500">Пароль</label>
-                        <input id="password" type="password" name="password" placeholder="Введите пароль..."
-                               class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white"
-                               required autocomplete="new-password">
-                        <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-500" />
-                    </div>
-
-                    <!-- Confirm Password -->
-                    <div class="flex flex-col gap-1">
-                        <label for="password_confirmation" class="text-yellow-500">Повторите пароль</label>
-                        <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Повторите пароль..."
-                               class="border border-yellow-500 px-4 py-2 rounded-3xl bg-transparent w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white"
-                               required autocomplete="new-password">
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-500" />
-                    </div>
 
                     <button type="submit" class="mt-4 bg-yellow-500 text-white font-semibold px-6 py-2 rounded-3xl w-full hover:bg-yellow-600 transition">
                         Регистрация

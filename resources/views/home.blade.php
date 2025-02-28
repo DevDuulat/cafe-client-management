@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="h-screen relative bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
-             style="background-image: url('https://github.com/TikhonovIvan/dip1/blob/main/img/hero_bg2.jpg?raw=true');">
+             style="background-image: url('https://github.com/TikhonovIvan/dip1/blob/main/img/hero_bg.png?raw=true');">
         <div class="absolute top-1/2 -right-30 transform -translate-y-1/2  w-1/2 hidden sm:block">
             <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/rectangle.png?raw=true" alt="Rectangle">
         </div>
@@ -13,7 +13,7 @@
                     Добро пожаловать в
                 </h2>
                 <h1 class="text-[50px] sm:text-[60px] md:text-[90px] text-yellow-500 font-[Tinos]">
-                    Наше кафе
+                    Наш ресторан
                 </h1>
                 <div class="flex items-center justify-center gap-4 text-center ">
                     <span
