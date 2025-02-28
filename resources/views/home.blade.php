@@ -159,7 +159,7 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-1.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
@@ -179,14 +179,14 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-2.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
-                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Лумпия с соусом</h3>
+                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Рыба с овощами</h3>
                             <p class="text-md text-gray-300">
-                                Начинка из свиного фарша, обжаренного с луком, морковью и другими овощами
+                                Очень нежная рыбка, минимум масла и калорий, гарнир готовится в самой рыбе
                             </p>
                         </div>
                         <!-- Цена -->
@@ -199,14 +199,14 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-4.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
-                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Лумпия с соусом</h3>
+                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Чили с тофу</h3>
                             <p class="text-md text-gray-300">
-                                Начинка из свиного фарша, обжаренного с луком, морковью и другими овощами
+                                Очень острое и пряное блюдо из рецептов индийско-китайской кухни
                             </p>
                         </div>
                         <!-- Цена -->
@@ -219,14 +219,14 @@
           p-4 rounded-xl relative  ">
                         <!-- Изображение блюда -->
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/dish-1.png?raw=true"
+                            <img src="https://github.com/TikhonovIvan/dip1/blob/main/img/menu/m-3.png?raw=true"
                                  alt="" class="w-full h-full object-cover">
                         </div>
                         <!-- Контент (название и описание) -->
                         <div class="ml-4  flex-1 pr-5">
-                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Лумпия с соусом</h3>
+                            <h3 class="mt-2 mb-3 text-yellow-500 text-xl font-semibold">Яичница с огурцом</h3>
                             <p class="text-md text-gray-300">
-                                Начинка из свиного фарша, обжаренного с луком, морковью и другими овощами
+                                Наивкуснейшая яичница с солёными огурцами на завтрак
                             </p>
                         </div>
                         <!-- Цена -->
