@@ -39,7 +39,7 @@
                     <h3 class="text-xl sm:text-2xl">Магическая <span class="text-yellow-500">Атмосфера</span></h3>
                 </header>
                 <p class="w-60 text-center text-lg sm:text-xl">В нашем заведении царит магическая атмосфера, наполненная
-                    вкусными ароматами
+                    вкусными вороматами
                 </p>
             </article>
             <article class="max-w-[350px]  w-full  h-full pt-10 pb-5 px-5   gap-y-4 bg-neutral-700 flex
